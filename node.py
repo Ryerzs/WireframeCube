@@ -8,6 +8,9 @@ class Node:
         pass
     def drawEdge(self):
         for node in self.adjNodes:
+            #draw here
+            #
+            #
             self.edgeDrawn(node,True)
             node.self.edgeDrawn(self,True)
     def edgeDrawn(self, node, b):
