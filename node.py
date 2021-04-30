@@ -13,5 +13,11 @@ class Node:
         for e in self.edges:
             if e[0] == node:
                 e[1] = b
-
-        
+    def addAdjNode(self,node):
+        if node == self:
+            return
+        for e in self.adjNodes:
+            if e == node:
+                return
+        self.addNodes.append(node)
+        node.setAdjNode(self) 
