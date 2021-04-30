@@ -1,7 +1,8 @@
 
 
 class Node:
-    def __init__(self):
+    def __init__(self, pos):
+        self.pos = pos
         self.adjNodes = []
         self.edges = []
         pass
@@ -13,11 +14,12 @@ class Node:
         for e in self.edges:
             if e[0] == node:
                 e[1] = b
-    def addAdjNode(self,node):
-        if node == self:
-            return
-        for e in self.adjNodes:
-            if e == node:
+    def addAdjNodes(self,nodes):
+        for n in nodes:
+            if n == self:
                 return
-        self.addNodes.append(node)
-        node.setAdjNode(self) 
+            for e in self.adjNodes:
+                if e == n:
+                    return
+            self.adjNodes.append(n)
+            n.addAdjNodes([self]) 
