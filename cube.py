@@ -5,10 +5,10 @@ import math
 class Cube():
     def __init__(self, r):
         self.r = r
-        self.createCube(self.r)
+        self.createCube()
     
-    def createCube(self, r):
-        r = r/2
+    def createCube(self):
+        r = self.r/2
         n1 = Node([ r,  r,  r])
         n2 = Node([-r,  r,  r])
         n3 = Node([-r, -r,  r])
