@@ -1,5 +1,4 @@
 
-
 class Node:
     def __init__(self, pos):
         self.setPos(pos)

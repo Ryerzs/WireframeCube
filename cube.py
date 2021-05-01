@@ -1,6 +1,5 @@
 from node import *
 from matrix import *
-import math
 
 class Cube():
     def __init__(self, r):

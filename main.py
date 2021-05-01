@@ -1,4 +1,5 @@
-from cube import *
+from graphicsCube import *
+import math
 
 def rotationMatrix(axis, deg):
     theta = deg*math.pi/180
@@ -16,8 +17,15 @@ def transformationMatrix(A,B):
     return matmul(A,B)
 
 if __name__ == '__main__':
-    cube = Cube(1)
-    A = rotationMatrix('z',90)
-    cube.transform(A)
-    print(cube.getPos())
+    win = GraphWin("Wireframe cube", 640, 640, autoflush=False)
+    win.setCoords(-2,-2,2,2)
+    win.setBackground("black")
+    cube = GCube(win, 1)
+    Az = rotationMatrix('z',0.5)
+    Ax = rotationMatrix('x',0.8)
+    A  = transformationMatrix(Az,Ax)
+    while(1):
+        cube.transform(A)
+        cube.update()
+        update(50)
     

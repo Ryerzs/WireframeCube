@@ -5,15 +5,20 @@ class GNode:
         self.win = win
         self.node = node
         self.setPos(self.node.pos)
+        self.lines = []
 
     def drawEdges(self):
         for n in self.node.adjNodes:
+            #Need to only draw line if line hasn't been drawn between this node
+
+            #Save points so that it automatically updates
             pos1 = self.getPos()
             pos2 = n.getPos()
             p1 = Point(pos1[0], pos1[1])
             p2 = Point(pos2[0], pos2[1])
-            line = Line(p1, p2)
-            line.draw(self.win)
+            self.lines.append(Line(p1, p2))
+            self.lines[-1].setFill("white")
+            self.lines[-1].draw(self.win)
             #
             #
             self.edgeDrawn(n,True)
@@ -32,3 +37,9 @@ class GNode:
 
     def setPos(self, pos):
         self.node.setPos(pos)
+    
+    def update(self):
+        for line in self.lines:
+            line.undraw()
+        self.lines = []
+        self.drawEdges()
