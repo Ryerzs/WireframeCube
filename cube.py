@@ -41,9 +41,9 @@ class Cube():
         c = math.cos(theta)
         s = math.sin(theta)
         if axis == 'x':
-            A = [[math.cos(theta), -math.sin(theta), 0], [math.sin(theta), math.cos(theta), 0], [0, 0, 1]]
+            A = [[1, 0, 0], [0, c, -s], [0, s, c]]
         elif axis == 'y':
-            A = [[math.cos(theta), -math.sin(theta), 0], [math.sin(theta), math.cos(theta), 0], [0, 0, 1]]
+            A = [[c, 0, s], [0, 1, 0], [-s, 0, c]]
         elif axis == 'z':
             A = [[c, -s, 0], [s, c, 0], [0, 0, 1]]
         pos = self.getPos()
