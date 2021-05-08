@@ -1,4 +1,4 @@
-from graphicsCube import *
+from graphicsModel import *
 import math
 
 def rotationMatrix(axis, deg):
